@@ -11,8 +11,8 @@ namespace StepBackWall.Settings.UI
         {
             if (!created)
             {
-                BSMLSettings.instance.AddSettingsMenu("StepBack Wall", "StepBackWall.Settings.UI.Views.mainsettings.bsml", MainSettings.instance);
-                GameplaySetup.instance.AddTab("StepBack Wall", "StepBackWall.Settings.UI.Views.mainmodifiers.bsml", MainModifiers.instance);
+                BSMLSettings.Instance.AddSettingsMenu("StepBack Wall", "StepBackWall.Settings.UI.Views.mainsettings.bsml", MainSettings.instance);
+                GameplaySetup.Instance.AddTab("StepBack Wall", "StepBackWall.Settings.UI.Views.mainmodifiers.bsml", MainModifiers.instance);
                 created = true;
             }
         }
@@ -21,8 +21,8 @@ namespace StepBackWall.Settings.UI
         {
             if (created)
             {
-                BSMLSettings.instance.RemoveSettingsMenu(MainSettings.instance);
-                GameplaySetup.instance.RemoveTab("StepBack Wall");
+                BSMLSettings.Instance.RemoveSettingsMenu(MainSettings.instance);
+                GameplaySetup.Instance.RemoveTab("StepBack Wall");
                 created = false;
             }
         }

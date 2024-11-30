@@ -36,7 +36,7 @@ namespace StepBackWall
         private void OnGameSceneLoaded()
         {
             if (Configuration.EnableStepBackWalls
-                && (BS_Utils.Plugin.LevelData.Mode == BS_Utils.Gameplay.Mode.None || !BS_Utils.Plugin.LevelData.GameplayCoreSceneSetupData.difficultyBeatmap.parentDifficultyBeatmapSet.beatmapCharacteristic.containsRotationEvents))
+                && (BS_Utils.Plugin.LevelData.Mode == BS_Utils.Gameplay.Mode.None || !BS_Utils.Plugin.LevelData.GameplayCoreSceneSetupData.beatmapKey.beatmapCharacteristic.containsRotationEvents))
             {
                 new GameObject(PluginName).AddComponent<StepBackWallEnabler>();
             }
@@ -45,10 +45,15 @@ namespace StepBackWall
         private void Load()
         {
             Configuration.Load();
-            SettingsUI.CreateMenu();
+            BeatSaberMarkupLanguage.Util.MainMenuAwaiter.MainMenuInitializing += MainMenuInit;
             AddEvents();
 
             Logger.log.Info($"{PluginName} v.{PluginVersion} has started.");
+        }
+
+        private void MainMenuInit()
+        {
+            SettingsUI.CreateMenu();
         }
 
         private void Unload()
